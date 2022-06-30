@@ -11,6 +11,9 @@ run-d:
 down:
 	docker-compose down
 
+restart-be:
+	docker-compose restart backend
+
 exec-be:
 	docker-compose exec backend bash
 

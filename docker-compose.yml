@@ -11,6 +11,8 @@ services:
       - PORT=3306
     ports:
       - 3306:3306
+    expose:
+      - 3306
     networks:
       - crud-sample
   backend:
