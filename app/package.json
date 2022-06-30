@@ -1,0 +1,33 @@
+{
+  "name": "crud-sample",
+  "version": "1.0.0",
+  "description": "Node.js rest apis with mysql",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql",
+    "rest",
+    "api"
+  ],
+  "author": "bassam",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "bootstrap-vue": "^2.22.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.2",
+    "vue": "^3.2.37",
+    "vue-cli": "^2.9.6",
+    "vue-router": "^3.5.4"
+  }
+}

@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  mysqldb:
+    image: mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_DATABASE=trees
+      - MYSQL_USER=bassam
+      - PORT=3306
+    ports:
+      - 3306:3306
+    networks:
+      - crud-sample
+  backend:
+    depends_on:
+      - mysqldb
+    networks:
+      - crud-sample
+    build: 
+      context: ./app
+    restart: always
+    ports:
+      - 2000:2000
+    environment:
+      - DB_HOST=mysqldb
+      - DB_USER=bassam
+      - DB_PASSWORD=root
+      - DB_NAME=trees
+      - DB_PORT=3306
+    volumes:
+      - ./app:/app
+      - '/node_modules'
+      - '/app/node_modules'
+  frontend:
+    depends_on:
+      - mysqldb
+      - backend
+    build:
+      context: ./client-crud
+    networks:
+      - crud-sample
+    ports:
+      - 8080:8080
+    volumes:
+      - ./client-crud/src:/src
+      - '/node_modules'
+
+networks:
+  crud-sample:
