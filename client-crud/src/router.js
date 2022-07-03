@@ -1,5 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import treesList from '@/components/TreesList'
+import addTree from '@/components/AddTree'
+import tree from '@/components/Tree'
 
 Vue.use(VueRouter);
 export default new VueRouter({
@@ -7,19 +10,23 @@ export default new VueRouter({
   routes: [
     {
       path: "/",
-      alias: "/trees",
-      name: "trees",
-      component: () => import("./components/TreesList")
+      name: "landing",
+      component: treesList
     },
     {
-      path: "/trees/:id",
+      path: "/treelist",
+      name: "treelist",
+      component: treesList
+    },
+    {
+      path: "/treelist/:id",
       name: "tree-details",
-      component: () => import("./components/Tree")
+      component: tree
     },
     {
       path: "/add",
       name: "add",
-      component: () => import("./components/AddTree")
+      component: addTree
     }
   ]
 });

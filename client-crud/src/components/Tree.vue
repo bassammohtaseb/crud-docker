@@ -59,7 +59,7 @@ export default {
         .then(response => {
           console.log(response.data);
           this.message = 'The tree was updated successfully!';
-          setTimeout(()=> this.$router.push({ name: "trees" }), 1000);
+          setTimeout(()=> this.$router.push({ name: "treelist" }), 1000);
         })
         .catch(e => {
           console.log(e);
@@ -69,7 +69,7 @@ export default {
       TreeDataService.delete(this.currentTree.id)
         .then(response => {
           console.log(response.data);
-          this.$router.push({ name: "trees" });
+          this.$router.push({ name: "treelist" });
         })
         .catch(e => {
           console.log(e);

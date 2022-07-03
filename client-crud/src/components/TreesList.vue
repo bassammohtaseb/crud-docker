@@ -21,9 +21,9 @@
         <div>
           <label><strong>Description:</strong></label> {{ currentTree.description }}
         </div>
-        <a :href="'/trees/' + currentTree.id">
+        <router-link :to="{name:'tree-details', params:{id:currentTree.id}}" class="nav-link">
           Edit/Delete
-        </a>
+      </router-link>
       </div>
       <div v-else>
         <br />
